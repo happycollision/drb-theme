@@ -5,13 +5,24 @@
 	<div id="front_extras">
 		<?php get_template_part('pictures'); ?>
 		
+	<?php $praise = new WP_Query("post_type=praise&showposts=1&orderby=rand");
+		if($praise->have_posts()): while ($praise->have_posts()) : $praise->the_post(); 
+			$custom = get_post_custom($post->ID);
+	?>
 		<div id="praise_for_diana">
 			<img src="<?php echo get_bloginfo('template_url') . '/images/straight_line.png';?>" />
-			<span class="quote">a voice that indicates a glowing future on stage</span>
-			<span class="quote_source">ENV Magazine</span>
+			<span class="quote"><?php the_content();?></span>
+			<span class="quote_source"><?php echo $custom['praise_author'][0];?></span>
+		    <?php if ($custom['praise_topic'][0] != ''){ ?>
+		    	<span class="quote_topic">on <span class="show_title"><?php echo $custom['praise_topic'][0];?></span></span>			    
+		    <?php } ?>
 			<img src="<?php echo get_bloginfo('template_url') . '/images/curved_line.png';?>" />	
 		</div>
-	</div>
+	<?php endwhile; endif; // ending if $praise->have_posts()
+	wp_reset_query();?>
+
+		
+	</div><!--front_extras-->
 			
 	<div role="content">
 			<?php happycol_content_nav('nav-above');?>

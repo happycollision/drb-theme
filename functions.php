@@ -1,5 +1,6 @@
 <?php
 locate_template('slides_post-type.php', true);
+locate_template('praise_quotes_post-type.php', true);
 get_template_part('cpt_slides');
 add_theme_support( 'post-thumbnails' );
 add_image_size('slide',540,210,true);

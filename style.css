@@ -1029,11 +1029,19 @@ nav#nav-below a:hover, nav#nav-above a:hover{
 #praise_for_diana .quote{
 
 }
-.quote_source{
+#praise_for_diana .quote_source{
 	text-align: right;
 }
-.quote_source:before{
+#praise_for_diana .quote_source:before{
 	content: "\2014";
+}
+#praise_for_diana .quote_topic{
+	text-align: right;
+	font-size: 1.4em;
+}
+#praise_for_diana .quote_topic .show_title{
+	display: inline;
+	font-size: inherit;
 }
 
 .home article{
